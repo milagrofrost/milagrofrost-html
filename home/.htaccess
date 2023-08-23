@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Add a trailing slash if it's missing, but not for "index.html"
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/index\.html$
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ /$1/ [L,R=301]
+
+# Handle your other rewrite rules here if needed

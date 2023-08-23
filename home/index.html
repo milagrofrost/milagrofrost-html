@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to My Page!</title>
+
+  <style>
+    body {
+      background-image: url("img/stars.gif");
+      background-repeat: repeat;
+      font-family: "Comic Sans MS", sans-serif;
+      color: #0066cc;
+      text-align: center;
+      margin: 40px;
+      
+
+    }
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    ul {
+      list-style-position: inside;
+      padding-left: 0;
+    }
+    li {
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+    .container {
+      border: 1px solid #0066cc;
+      background-color: rgba(230, 247, 255, 0.8); /* Semi-transparent background color */
+      max-width: 800px;
+      min-width: calc(800px - 80px); /* (800px - 2 * 40px) */
+      margin: 0 auto; /* Horizontal centering */
+      padding: 0 40px; /* Space on the left and right */
+      box-sizing: border-box; /* Include padding in the width */
+    }
+    .content {
+      position: relative;
+    }
+    .footer {
+      margin-top: 50px;
+      position: relative;
+    }
+    /* Rainbow separator style */
+    .separator {
+      height: 2px;
+      background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    }
+    .separator2 {
+      height: 2px;
+      background: linear-gradient(to right, blue, silver, white, blue, white, silver, blue);
+    }
+    /* Flexbox for centering */
+    .center-container {
+
+      position: relative;
+    }
+  .image-container {
+    margin: 0 auto 10px; /* Added margin for centering and spacing */
+    text-align: center; /* Center the image within the container */
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container content">
+    <h1>WELCOME TO MY PAGE!!!!</h2>
+    <div class="image-container" style="padding: 0px;"> <!-- Added padding here -->
+      <img src="img/computer1.gif" style="padding: 30px;" width="100"><img src="img/me.jpg" alt="9 year old matt" width="200"><img src="img/computer2.gif" style="padding: 30px;" width="100">
+    </div>
+    <div class="separator"></div> <!-- Rainbow separator -->
+    <h2 id="about">About Me</h2>
+    <p>
+      Hi there! Thanks for visiting my personal page. <br>
+      My name is Matt Frost, and this is my little corner on the web. <br>
+      I love coding, experimenting with new web technologies, and creating cool websites. <br>
+      Feel free to explore and check out some of my projects.<br><br>
+      <a href="../myspace/index.html">Hit me up on Myspace!<br><img src="img/myspace.gif"></a>
+    </p>
+    <div class="separator2"></div>
+    <h2 id="career">Career Corner</h2>
+    I'm a cool bro by night and a cloud engineer by day.
+    <a href="https://soundcloud.com/dreams-are-for-sleep/sets">
+      <div class="image-container"> 
+        <img src="img/gcp.gif"width="200"><img src="img/k8s.gif"width="200"><img src="img/terraform.gif"width="200" alt="terraform"><br>
+      Make me some clouds</div><br><br>
+      </a>
+    <div class="separator2"></div>
+    <div class="separator2"></div>
+    <h2 id="footprint">Digital Footprint</h2>
+    Embrace your cringe.
+    <ul>
+      <li><a href="https://www.youtube.com/@milagrofrost/videos">My Youtube 1</a></li>
+      <li><a href="https://www.youtube.com/@bobdude161/videos">My Youtube 2</a></li>
+      <li><a href="https://github.com/milagrofrost?tab=repositories">Github</a></li>
+      <li><a href="https://gitlab.com/milagrofrost">Gitlab</a></li>
+      <li><a href="https://archive.org/details/@milagrofrost">My Archives</a></li>
+    </ul>
+    <div class="separator2"></div>
+    <h2 id="books">Failed Publications</h2>
+    Was looking to get published but some deals fell through unfortunately.<br>
+    For this, I've decided to open source my works for the public.  You're welcome.
+    <ul>
+      <li><a href="books/President-comes-to-Male.pdf">The President Comes to Male High School</a></li>
+      <li><a href="books/Uncooperative-Hippos.pdf">The Very Uncooperative Hippos</a></li>
+      <li><a href="books/My-Pets.pdf">My Pets My Pets</a></li>
+      <li><a href="books/Programmer.pdf">So You Want to Be a Computer Programmer?</a></li>
+    </ul>
+    <div class="separator2"></div>
+    <h2 id="books">Successful Projects</h2>
+    Things that I've made.
+    <ul>
+      <li><a href="https://hackaday.com/2022/11/03/turbo-button-pays-charming-homage-to-early-personal-computers/">TURBO BUTTON PAYS CHARMING HOMAGE TO EARLY PERSONAL COMPUTERS</a></li>
+      <li><a href="https://www.hackster.io/user03583/ok-google-start-my-car-7088dd">Ok Google, Start My Car</a></li>
+      <li><a href="https://communities.vmware.com/t5/ESXi-Documents/The-trials-of-GPU-passthrough-and-Windows-8-1-using-ESXI-5-5-and/ta-p/2795691">The trials of GPU passthrough and Windows 8.1 (using ESXI 5.5 and View 5.3)</a></li>
+    </ul>
+    <div class="separator2"></div>
+    <h2 id="apple">My Apple world</h2>
+    No Bill Gates Allowed!!
+    <a href="../apple/">
+      <div class="image-container"> 
+        <img src="img/apple2.gif" width="200">
+      </div>
+      ENTER IF YOU DARE</a>
+    <ul>
+    </ul>
+    <div class="separator2"></div>
+    <h2 id="music">My Music</h2>
+    <a href="https://soundcloud.com/dreams-are-for-sleep/sets">
+    <div class="image-container"> 
+      <img src="img/dreams.jpg"width="200">
+    </div>
+    Dreams Are For Sleep</a>
+    <br>
+    ...is a name I made when I started making music in college. <br>
+    Failing classes and uncertain for the future, <br>
+    I found some solace in expressing those frustrations in music.<br>
+    Armed with a PowerMac G4 (Sawtooth), Garageband and an Axiom49 keyboard,<br>
+    I began my own therapy in finding a hopeful future where I could dream again.<br>
+    It's not the best music, but it's mine.  Dream on....<br><br>
+  </div>
+
+
+  <div class="footer">
+    <img src="img/barfire.gif"/></a> 
+    <hr>
+    <p>HTML code co-created by ChatGPT</p>
+    <p></p>
+    <img src="img/counter.gif"/></a>                
+  </div>
+</body>
+
+</html>

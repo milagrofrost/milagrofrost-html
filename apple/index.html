@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Apple world</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.js"></script>
+</head>
+
+<body>
+
+  <div id="overlay"></div>
+  
+<!---modal for images-->
+  <div id="myModal" class="modal initial-hide">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+  
+<!---apple menu-->  
+  <div class="apple-menu-outer">
+      <div class="apple-menu">
+        <div class="apple-menu-text" id="appleMenu"></div>
+      </div>
+  </div>
+
+  <div class="pcejs-container">
+    <div class="pcejs-loading-status" id="status">Downloading...</div>
+    <div class="pcejs">
+      <progress value="0" max="100" id="progress" hidden="1"></progress>
+      
+    </div>
+    <div class="canvas-container">
+      <canvas class="emscripten pcejs-canvas" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+      <img src="img/inception.png" alt="Custom Border" class="custom-border">
+    </div>
+    <div class="emscripten" id="output"></div>
+    <a href="#" id="toggleButton">
+      <img src="img/floppy.png" alt="Icon" class="right-icon">
+    </a>
+  </div>
+
+  
+
+
+
+<!---constrain width for everything else-->
+  <div class="everythingelse">
+
+<!---collection-->
+    <div class="container">
+    <div class="box green">
+      <div class="slider" data-folder="collection" data-images="14">
+        <ul class="slideWrap" style="left: -1500px;"> 
+          <!-- List items with images and hover text will be injected here -->
+        </ul>
+        <button class="prev">≪</button>
+        <button class="next">≫</button>
+      </div>
+    </div>
+    <div class="content margin-left">
+      <h2>In the collection</h2>
+      <p>~15 years of collecting.  
+        A lot have came and went but some have been here to stay.</p>
+        <div class="button-box">
+          <button class="mac-button toggle-button">OK</button>
+        </div>
+    </div>
+  </div>
+
+
+<!---battlestation-->
+  <div class="container odd-container">
+    <div class="box orange margin-left">
+      <div class="slider" data-folder="battlestation" data-images="14">
+        <ul class="slideWrap" style="left: -1500px;"> 
+          <!-- List items with images and hover text will be injected here -->
+        </ul>
+        <button class="prev">≪</button>
+        <button class="next">≫</button>
+      </div>
+    </div>
+    <div class="content">
+      <h2>Mac Battlestations</h2>
+      <p>A snapshot of desk setups of yesteryears.  
+      </p>
+      <div class="button-box">
+        <button class="mac-button toggle-button">Cool</button>
+      </div>
+    </div>
+  </div>
+
+
+
+<!---mods-->
+  <div class="container">
+    <div class="box yellow">
+      <div class="slider" data-folder="mods" data-images="14">
+        <ul class="slideWrap" style="left: -1500px;"> 
+          <!-- List items with images and hover text will be injected here -->
+        </ul>
+        <button class="prev">≪</button>
+        <button class="next">≫</button>
+      </div>
+    </div>
+    <div class="content margin-left">
+      <h2>Mac Mods</h2>
+      <p>If you are squeamish to poorly executed Macintosh modifications.  Please look away now.</p>
+      <div class="button-box">
+        <button class="mac-button toggle-button">Good for you</button>
+      </div>
+    </div>
+  </div>
+
+
+<!---games-->
+  <div class="container odd-container">
+    <div class="box red margin-left">
+      <div class="slider" data-folder="games" data-images="14">
+        <ul class="slideWrap" style="left: -1500px;"> 
+          <!-- List items with images and hover text will be injected here -->
+        </ul>
+        <button class="prev">≪</button>
+        <button class="next">≫</button>
+      </div>
+    </div>
+    <div class="content">
+      <h2>Favorite Games</h2>
+      <p>Back when shareware was huge.</p>
+      <div class="button-box">
+        <button class="mac-button toggle-button">k.</button>
+      </div>
+    </div>
+  </div>
+
+<!---books-->
+  <div class="container">
+    <div class="box purple">
+      <div class="slider" data-folder="books" data-images="14">
+        <ul class="slideWrap" style="left: -1500px;"> 
+          <!-- List items with images and hover text will be injected here -->
+        </ul>
+        <button class="prev">≪</button>
+        <button class="next">≫</button>
+      </div>
+    </div>
+    <div class="content margin-left">
+      <h2>Got Books?</h2>
+      <p>Out of the 100+ Apple related books in the collection.  Here are some the favorites.<br>
+      Current collection: <a href="https://www.goodreads.com/review/list/153537965-matthew-frost?ref=nav_mybooks">Here</a>
+      </p>
+      <div class="button-box">
+        <button class="mac-button toggle-button">Why?</button>
+      </div>
+    </div>
+  </div>
+
+
+
+<!---stages-->
+  <div class="container odd-container">
+    <div class="box blue margin-left">
+      <div class="slider" data-folder="stages" data-images="14">
+        
+        <ul class="slideWrap" style="left: -1500px;"> 
+          <!-- List items with images and hover text will be injected here -->
+        </ul>
+        <button class="prev">≪</button>
+        <button class="next">≫</button>
+      </div>
+    </div>
+    <div class="content">
+      <h2>The Stages of a Collector</h2>
+      <p>Derived from a member of a Vintage Computer group on Facebook.<br>Depicted by AI.</p>
+      <div class="button-box">
+        <button class="mac-button toggle-button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+<!---footer-->
+  <div class="footer">
+    <hr>
+  
+    <p>HTML code co-created by ChatGPT</p>
+    Screensaver by: <a href="https://www.bryanbraun.com/after-dark-css/">Bryan Braun</a><br>
+    PCEjs Mac Plus system files from <a href="https://jamesfriend.com.au/pce-js/system6/">James Friend</a><br>
+
+    <img src="img/best.gif"/></a>                
+  </div>
+  </div>
+
+  <script src="scripts/menu.js"></script>
+  <script src="scripts/screensaver.js"></script>
+  <script type="module" src="scripts/sliders.js"></script>
+  <script type="module" src="scripts/images.js"></script>
+  <!-- <script type="text/javascript" src="pce/bundle.js"></script> -->
+
+  <script type="text/javascript" src="pce/pce-js/pce-ui.js"></script>
+  <script type="text/javascript" src="pce/pce-js/pce-macplus.js"></script>
+</body>
+
+</html>
