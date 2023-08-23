@@ -5739,8 +5739,8 @@ Module['FS_createPath']('/', 'roms', true, true);
     }
     Module.expectedDataFileDownloads++;
     var PACKAGE_PATH = window['encodeURIComponent'](window.location.pathname.toString().substring(0, window.location.pathname.toString().lastIndexOf('/')) + '/');
-    var PACKAGE_NAME = 'pce/pce-js/pce-macplus.data';
-    var REMOTE_PACKAGE_NAME = 'pce/pce-js/pce-macplus.data';
+    var PACKAGE_NAME = '/apple/pcepce-js/pce-macplus.data';
+    var REMOTE_PACKAGE_NAME = '/apple/pcepce-js/pce-macplus.data';
     var PACKAGE_UUID = '5924e1e9-d567-4fba-b120-af60cefad60d';
     function fetchRemotePackage(packageName, callback, errback) {
       var xhr = new XMLHttpRequest();
@@ -5833,9 +5833,9 @@ Module['FS_createPath']('/', 'roms', true, true);
         Module['HEAPU8'].set(data, ptr);
         curr.response = Module['HEAPU8'].subarray(ptr, ptr + 20972032);
         curr.onload();
-                Module['removeRunDependency']('datafile_pce/pce-js/pce-macplus.data');
+                Module['removeRunDependency']('datafile_/apple/pcepce-js/pce-macplus.data');
     };
-    Module['addRunDependency']('datafile_pce/pce-js/pce-macplus.data');
+    Module['addRunDependency']('datafile_/apple/pcepce-js/pce-macplus.data');
     function handleError(error) {
       console.error('package error:', error);
     };

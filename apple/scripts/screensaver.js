@@ -8,7 +8,7 @@ let screensaverVisible = false; // Track if screensaver is currently visible
 function showScreensaver() {
     // Load screensaver.html into an iframe
     const iframe = document.createElement('iframe');
-    iframe.src = 'screensaver.html';
+    iframe.src = '/apple/screensaver.html';
     iframe.style.border = 'none';
     iframe.style.width = '100%';
     iframe.style.height = '100%';
