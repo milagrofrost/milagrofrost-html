@@ -1,7 +1,7 @@
 const menuItems = [
   {
     type: "img",
-    src: "img/a.png",
+    src: "/apple/img/a.png",
     submenu: [
       { type: "midi", href: "#", content: "About the Finder",  onClick: playMidi },
       { type: "divider"},
@@ -219,7 +219,7 @@ function shutdown() {
     overlay.className = "shutdown-overlay";
 
     const audioShutdown = document.createElement("audio");
-    audioShutdown.src = "audio/shutdown.mp3"; // Replace with the path to your shutdown sound
+    audioShutdown.src = "/apple/audio/shutdown.mp3"; // Replace with the path to your shutdown sound
     audioShutdown.autoplay = true;
 
     overlay.appendChild(audioShutdown);
@@ -243,7 +243,7 @@ function shutdown() {
       
       // Play startup sound after shutdown overlay's timeout
       const audioStartup = document.createElement("audio");
-      audioStartup.src = "audio/startup.mp3"; // Replace with the path to your startup sound
+      audioStartup.src = "/apple/audio/startup.mp3"; // Replace with the path to your startup sound
       audioStartup.autoplay = true;
       document.body.appendChild(audioStartup);
 
@@ -258,7 +258,7 @@ function shutdown() {
 function playMidi() {
   console.log("playMidi() function is called");
   const audioMidi = document.createElement("audio");
-  audioMidi.src = "audio/clone.mp3"; // Replace with the path to your MP3 file
+  audioMidi.src = "/apple/audio/clone.mp3"; // Replace with the path to your MP3 file
   audioMidi.style.display = "none"; // Hide the audio element
   document.body.appendChild(audioMidi);
 

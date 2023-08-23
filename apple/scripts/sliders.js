@@ -185,7 +185,7 @@ const toggleButton = document.getElementById('toggleButton');
 const containers = document.querySelectorAll('.container');
 
 // Get a reference to the audio element
-const audio = new Audio('audio/floppy.mp3');
+const audio = new Audio('/apple/audio/floppy.mp3');
 
 // Track the number of containers that have finished toggling
 let containersToggled = 0;
