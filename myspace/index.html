@@ -13,7 +13,7 @@ first_name = "Matt"
 last_name = "Frost"
 who_id_like_to_meet = "Steve Jobs";
 status = "tehee im so lol XD random1!!!!!!11!1";
-profile_picture = "img/me.jpg";
+profile_picture = "/myspace/img/me.jpg";
 gender = "Male";
 age = "36";
 city = "Jeffersonville, IN";
@@ -98,35 +98,35 @@ mp3_file = "https://dropbysayhi.com/media/music/myspace_songs/sugar_were_going_d
 //##############################
 
 friend1_name="Tom";
-friend1_pic="img/tom.jpg";
+friend1_pic="/myspace/img/tom.jpg";
 friend1_url="";
 
 friend2_name="Amanda";
-friend2_pic="img/friend2.png";
+friend2_pic="/myspace/img/friend2.png";
 friend2_url="";
 
 friend3_name="atty";
-friend3_pic="img/friend3.png";
+friend3_pic="/myspace/img/friend3.png";
 friend3_url="";
 
 friend4_name="JJ";
-friend4_pic="img/friend4.png";
+friend4_pic="/myspace/img/friend4.png";
 friend4_url="";
 
 friend5_name="goochies";
-friend5_pic="img/friend5.png";
+friend5_pic="/myspace/img/friend5.png";
 friend5_url="";
 
 friend6_name="grill";
-friend6_pic="img/friend6.png";
+friend6_pic="/myspace/img/friend6.png";
 friend6_url="";
 
 friend7_name="Ivy";
-friend7_pic="img/friend7.png";
+friend7_pic="/myspace/img/friend7.png";
 friend7_url="";
 
 friend8_name="Simba";
-friend8_pic="img/friend8.png";
+friend8_pic="/myspace/img/friend8.png";
 friend8_url="";
 
 //##############################
@@ -147,13 +147,13 @@ number_of_comments= 2;
 total_number_of_comments= 1337;
 
 commenter[1] = "Tom";
-commenter_pic[1] = "img/tom.jpg";
+commenter_pic[1] = "/myspace/img/tom.jpg";
 comment_date_time[1] = "7/7/2023 11:39 PM";
 comment[1] = "Hey!  I saw your github page! really impressed!  would you like to work for me?";
 commenter_url[1] = ""
 
 commenter[2] = "Tom";
-commenter_pic[2] = "img/tom.jpg";
+commenter_pic[2] = "/myspace/img/tom.jpg";
 comment_date_time[2] = "7/8/2023 12:01 PM";
 comment[2] = "nvm, i got sober and realized your code is trash";
 commenter_url[2] = ""
@@ -193,13 +193,13 @@ function playButton(){
 	if(songPlaying == false){
 		document.getElementById("songFile").play();
 		songPlaying = true;
-		document.getElementById("musicPlayer").style.backgroundImage = "url('img/playersmall.gif')";
+		document.getElementById("musicPlayer").style.backgroundImage = "url('/myspace/img/playersmall.gif')";
 	}
 	
 	else{
 		document.getElementById("songFile").pause();
 		songPlaying = false;
-		document.getElementById("musicPlayer").style.backgroundImage = "url('img/playersmallpaused.gif')";
+		document.getElementById("musicPlayer").style.backgroundImage = "url('/myspace/img/playersmallpaused.gif')";
 	}
 	
 }
@@ -423,11 +423,11 @@ function initializeProfile() {
 				</tr>
 				<tr>
 					<td width="120" height="5" nowrap bgcolor="#ffffff" align="center" class="text">
-						<a href="mailto:milagrofrost@gmail.com" id="ctl00_Main_ctl00_UserContactLinks1_MailLink"><img src="img/sendMailIcon.gif" border="0" align="middle"></a>
+						<a href="mailto:milagrofrost@gmail.com" id="ctl00_Main_ctl00_UserContactLinks1_MailLink"><img src="/myspace/img/sendMailIcon.gif" border="0" align="middle"></a>
 					</td>
 					<td width="15" height="5" bgcolor="#ffffff"></td>
 					<td width="150" nowrap height="5" bgcolor="#ffffff" align="center" class="text" valign="top">
-						<a href="#" id="ctl00_Main_ctl00_UserContactLinks1_ForwardLink"><img src="img/forwardMailIcon.gif" border="0" align="middle"></a>
+						<a href="#" id="ctl00_Main_ctl00_UserContactLinks1_ForwardLink"><img src="/myspace/img/forwardMailIcon.gif" border="0" align="middle"></a>
 					</td>
 				</tr>
 				<tr>
@@ -435,10 +435,10 @@ function initializeProfile() {
 				</tr>
 				<tr>
 					<td width="130" nowrap height="5" bgcolor="#ffffff" align="center" class="text" valign="top">
-						<a href="#" id="ctl00_Main_ctl00_UserContactLinks1_AddFriendLink"><img src="img/addFriendIcon.gif" border="0" align="middle"></a>
+						<a href="#" id="ctl00_Main_ctl00_UserContactLinks1_AddFriendLink"><img src="/myspace/img/addFriendIcon.gif" border="0" align="middle"></a>
 					</td>
 					<td width="15" height="5" bgcolor="#ffffff"></td>
-					<td width="150" nowrap height="2" bgcolor="#ffffff" align="center" class="text" valign="middle"><a href="#" id="ctl00_Main_ctl00_UserContactLinks1_AddFavoriteLink"><img src="img/addFavoritesIcon.gif" border="0" align="middle"></a></td>
+					<td width="150" nowrap height="2" bgcolor="#ffffff" align="center" class="text" valign="middle"><a href="#" id="ctl00_Main_ctl00_UserContactLinks1_AddFavoriteLink"><img src="/myspace/img/addFavoritesIcon.gif" border="0" align="middle"></a></td>
 				</tr>
 				<tr>
 					<td colspan="3"></td>
@@ -446,18 +446,18 @@ function initializeProfile() {
 				<tr>
 					<td width="130" nowrap height="5" bgcolor="#ffffff" align="center" class="text" valign="top">
 						<a href="#" id="ctl00_Main_ctl00_UserContactLinks1_MessageFriendLink" onclick="javascript: up_launchIC( '0', '6221', '', 0 ); return false;">
-							<img src="img/messagefriend.gif" border="0" align="middle">
+							<img src="/myspace/img/messagefriend.gif" border="0" align="middle">
 						</a>
 					</td>
 					<td width="15" height="5" bgcolor="#ffffff"></td>
-					<td width="150" nowrap height="5" bgcolor="#ffffff" align="center" class="text" valign="top"><a href="#" id="ctl00_Main_ctl00_UserContactLinks1_BlockFriendLink" onclick="return confirm('Are you sure you want to block this user?\n- to block this user, hit OK\n- otherwise, hit Cancel');"><img src="img/blockuser.gif" border="0" align="middle"></a></td>
+					<td width="150" nowrap height="5" bgcolor="#ffffff" align="center" class="text" valign="top"><a href="#" id="ctl00_Main_ctl00_UserContactLinks1_BlockFriendLink" onclick="return confirm('Are you sure you want to block this user?\n- to block this user, hit OK\n- otherwise, hit Cancel');"><img src="/myspace/img/blockuser.gif" border="0" align="middle"></a></td>
 				</tr>
 				<tr>
 					<td width="130" nowrap height="5" bgcolor="#ffffff" align="center" class="text" valign="top">
-						<a href="#" id="ctl00_Main_ctl00_UserContactLinks1_AddToGroupLink"><img src="img/icon_add_to_group.gif" border="0" align="middle"></a>
+						<a href="#" id="ctl00_Main_ctl00_UserContactLinks1_AddToGroupLink"><img src="/myspace/img/icon_add_to_group.gif" border="0" align="middle"></a>
 					</td>
 					<td width="15" height="5" bgcolor="#ffffff"></td>
-					<td width="150" nowrap height="2" bgcolor="#ffffff" align="center" class="text" valign="middle"><a href="#" id="ctl00_Main_ctl00_UserContactLinks1_RateFriendLink"><img src="img/icon_rank_user4.gif" border="0" align="middle"></a></td>
+					<td width="150" nowrap height="2" bgcolor="#ffffff" align="center" class="text" valign="middle"><a href="#" id="ctl00_Main_ctl00_UserContactLinks1_RateFriendLink"><img src="/myspace/img/icon_rank_user4.gif" border="0" align="middle"></a></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -507,7 +507,7 @@ function initializeProfile() {
 								
 	
 
-<div id="musicPlayer" style="display:none; height:53px; width:300px; background-image:url('img/playersmallpaused.gif');">
+<div id="musicPlayer" style="display:none; height:53px; width:300px; background-image:url('/myspace/img/playersmallpaused.gif');">
 <div onclick="playButton()" style="cursor:pointer; width:40px; height:40px; float:left; margin-left:6px; margin-top:6px;"></div>
 <h7 style="float:left; text-align:left; color:white; margin-left:11px; margin-top:10px; font-weight:bold; font-family: Arial, sans-serif; font-size: 12px" id="song"></h7></div><br />
 

@@ -120,7 +120,7 @@ $(sliders).each(function () {
       const description = containerDescription.images[imageSrc];
       const listItem = `
         <li>
-          <img src="./img/${folder}/${imageSrc}" alt="">
+          <img src="/apple/img/${folder}/${imageSrc}" alt="">
           <div class="text-overlay">${description}</div>
         </li>
       `;
