@@ -45,7 +45,7 @@ const menuItems = [
       { type: "text", content: "Clear", textColor: "gray" },
       { type: "text", content: "Select All", textColor: "gray" },
       { type: "divider"},
-      { type: "gif", src: "img/clippy.gif", content: "View Clippy" },
+      { type: "gif", src: "/apple/img/clippy.gif", content: "View Clippy" },
     ]
   },
   {
