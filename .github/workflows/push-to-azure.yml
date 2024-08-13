@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: arc-runner-set
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Install curl
       run: |
@@ -20,7 +20,7 @@ jobs:
         curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
         echo "/usr/bin" >> $GITHUB_PATH
 
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
