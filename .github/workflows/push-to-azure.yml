@@ -1,5 +1,5 @@
 name: Blob storage website CI
-
+      
 on:
     push:
         branches: [ main ]
@@ -9,11 +9,6 @@ jobs:
     runs-on: arc-runner-set
     steps:
     - uses: actions/checkout@v3
-
-    - name: Install curl
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y curl
 
     - name: Install Azure CLI
       run: |
@@ -25,15 +20,13 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Upload to blob storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-            az storage blob upload-batch --overwrite --account-name ${{ secrets.AZURE_RID }} --auth-mode key -d '$web' -s .
+      run: |
+        az storage blob upload-batch --overwrite --account-name ${{ secrets.AZURE_RID }} --auth-mode key -d '$web' -s .
+
     - name: Purge CDN endpoint
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-            az cdn endpoint purge --content-paths  "/*" --profile-name "${{ secrets.AZURE_RID }}" --name "${{ secrets.AZURE_RID }}" --resource-group ${{ secrets.AZURE_RSG }}
+      run: |
+        az cdn endpoint purge --content-paths "/*" --profile-name "${{ secrets.AZURE_RID }}" --name "${{ secrets.AZURE_RID }}" --resource-group ${{ secrets.AZURE_RSG }}
+
 
     # Azure logout
     - name: logout
