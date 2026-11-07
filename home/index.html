@@ -64,6 +64,13 @@
     margin: 0 auto 10px; /* Added margin for centering and spacing */
     text-align: center; /* Center the image within the container */
   }
+  .mybooks-link img {
+    margin-top: 12px;
+    transition: transform .15s;
+  }
+  .mybooks-link:hover img, .mybooks-link:focus img {
+    transform: scale(1.08) rotate(-3deg);
+  }
   </style>
 </head>
 
@@ -112,7 +119,14 @@
       <li><a href="/home/books/My-Pets.pdf">My Pets My Pets</a></li>
       <li><a href="/home/books/Programmer.pdf">So You Want to Be a Computer Programmer?</a></li>
     </ul>
-    Books I didn't write but do own: <a href="/mybooks/">browse My Books</a>.<br><br>
+    <div class="separator2"></div>
+    <h2 id="mybooks">My Books</h2>
+    Books I didn't write but do own. Mostly old Mac stuff.
+    <a href="/mybooks/" class="mybooks-link">
+      <div class="image-container">
+        <img src="/home/img/mybooks.svg" width="128" height="128" alt="Open My Books"><br>
+        Browse my library</div>
+    </a><br>
     <div class="separator2"></div>
     <h2 id="books">Successful Projects</h2>
     Things that I've made.
