@@ -71,15 +71,72 @@
   .mybooks-link:hover img, .mybooks-link:focus img {
     transform: scale(1.08) rotate(-3deg);
   }
+  /* Retro button menu */
+  .menu {
+    margin: 10px auto 20px;
+    font-size: 14px;
+  }
+  .menu-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .menu a {
+    display: inline-block;
+    margin: 3px 2px;
+    padding: 4px 10px;
+    background: #c0c0c0;
+    color: #000080;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+  }
+  .menu a:hover, .menu a:focus {
+    background: #ffff99;
+    color: #cc0000;
+  }
+  .menu a:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+  }
+  .back-to-top {
+    display: block;
+    margin: 15px 0 5px;
+    font-size: 12px;
+  }
+  .new {
+    color: #ff0000;
+    font-weight: bold;
+    animation: blink 1s steps(2, start) infinite;
+  }
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
+  .piforma-photo {
+    border: 3px ridge #c0c0c0;
+    max-width: 100%;
+    margin-top: 10px;
+  }
   </style>
 </head>
 
 <body>
   <div class="container content">
-    <h1>WELCOME TO MY PAGE!!!!</h2>
+    <h1 id="top">WELCOME TO MY PAGE!!!!</h1>
     <div class="image-container" style="padding: 0px;"> <!-- Added padding here -->
       <img src="/home/img/computer1.gif" style="padding: 30px;" width="100"><img src="/home/img/me.jpg" alt="9 year old matt" width="200"><img src="/home/img/computer2.gif" style="padding: 30px;" width="100">
     </div>
+    <nav class="menu">
+      <div class="menu-label">~*~ Pick a page, any page ~*~</div>
+      <a href="#about">About Me</a>
+      <a href="#career">Cloud Corner</a>
+      <a href="#footprint">Footprint</a>
+      <a href="#books">Publications</a>
+      <a href="#mybooks">My Books</a>
+      <a href="#piforma">PiForma <span class="new">NEW!</span></a>
+      <a href="#projects">Projects</a>
+      <a href="#apple">Apple World</a>
+      <a href="#music">Music</a>
+    </nav>
     <div class="separator"></div> <!-- Rainbow separator -->
     <h2 id="about">About Me</h2>
     <p>
@@ -128,7 +185,22 @@
         Browse my library</div>
     </a><br>
     <div class="separator2"></div>
-    <h2 id="books">Successful Projects</h2>
+    <h2 id="piforma">Macintosh PiForma <span class="new">NEW!</span></h2>
+    A Raspberry Pi Macintosh Performa fever dream built inside an Apple IIc Monitor.
+    <div class="image-container">
+      <a href="https://github.com/milagrofrost/Macintosh-PiForma-docs"><img src="/home/img/piforma.jpg" class="piforma-photo" width="400" alt="The Macintosh PiForma: an Apple IIc monitor with a Raspberry Pi and an LCD inside, showing a Mac OS 9 style desktop"></a>
+    </div>
+    The old CRT was toast, so I kept the case and rebuilt the guts: a Raspberry Pi 4B,
+    an LCD, a battery, a boot chime, a tap-able Apple logo button and a Bluetooth-converted ADB keyboard.
+    It even travels in a velvet-lined bag. Puns are allowed here.
+    <ul>
+      <li><a href="https://github.com/milagrofrost/Macintosh-PiForma-docs">The Build Docs</a><br>Everything: hardware, wiring, power rail, software, and STL files.</li>
+      <li><a href="https://github.com/milagrofrost/piforma-owners-guide">The Owner's Guide</a><br>A full 80s-style Apple owner's manual for a computer Apple never made.</li>
+      <li><a href="https://github.com/milagrofrost/piforma-panel">PiForma Panel</a><br>A classic Mac menu bar for the Pi's Linux desktop.</li>
+      <li><a href="https://github.com/milagrofrost/Macintosh-PiForma-docs-viewer">Docs Viewer</a><br>The docs, served up in a HyperCard-style stack.</li>
+    </ul>
+    <div class="separator2"></div>
+    <h2 id="projects">Successful Projects</h2>
     Things that I've made.
     <ul>
       <li><a href="https://pirate.milagrofrost.com/">LimeWire Simulator</a><br>A fan-made 2000s file-sharing fever dream, complete with fake danger and dial-up nonsense.</li>
