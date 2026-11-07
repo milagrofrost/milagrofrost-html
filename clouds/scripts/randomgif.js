@@ -1,5 +1,5 @@
 function loadGifs() {
-    const gifContainer = document.body;
+    const gifContainer = document.getElementById('gifs');
     const gifFolder = '/clouds/img/';
     let gifFiles = [];
 

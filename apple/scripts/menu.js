@@ -72,6 +72,11 @@ const menuItems = [
   },
   {
     type: "hyperlink",
+    href: "/home/",
+    content: "Home"
+  },
+  {
+    type: "hyperlink",
     href: "https://www.google.com",
     content: "Help"
   }
