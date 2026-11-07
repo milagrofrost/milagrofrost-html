@@ -165,6 +165,7 @@
       transition: left var(--flip) ease-in-out;
     }
     body.single #coil { left: -17px; }
+    body:not(.ready) #coil { display: none; }
 
     /* click zones for flipping */
     .hit {
@@ -725,6 +726,7 @@
       await img(page);
       statusEl.remove();
       draw();
+      document.body.classList.add("ready");
       buildToc();
     } catch (err) {
       console.error(err);
