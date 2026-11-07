@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Books</title>
+<meta name="description" content="Matt Frost's book collection: old Mac manuals, For Dummies books, computer history and more.">
+<link rel="icon" href="/apple/favicon.ico">
+<style>
+:root{
+  --metal-hi:#e9e9e9; --metal-lo:#b9b9b9; --metal-line:#8d8d8d;
+  --lcd-hi:#f4f6e4; --lcd-lo:#d6dbbd; --lcd-ink:#2e3322;
+  --pane:#fff; --stripe:#edf3fe; --sel:#3875d7; --sel-ink:#fff; --ink:#1a1a1a; --mut:#6b6b6b;
+  --grid-bg:#2b2b2b; --grid-ink:#eee; --grid-mut:#9a9a9a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font:12px/1.35 "Lucida Grande","Lucida Sans Unicode","Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);
+  background:#5c6a7d url("/home/img/stars.gif");}
+.win{max-width:1180px;margin:18px auto;border-radius:9px;overflow:hidden;border:1px solid #555;
+  box-shadow:0 18px 50px rgba(0,0,0,.55);display:flex;flex-direction:column;height:calc(100vh - 36px);min-height:560px;background:var(--grid-bg)}
+/* title bar + toolbar: brushed metal */
+.bar{background:linear-gradient(#f2f2f2,#d0d0d0 48%,#c3c3c3 52%,#b4b4b4);border-bottom:1px solid var(--metal-line);
+  padding:8px 12px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;position:relative}
+.bar::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 1px,rgba(0,0,0,.03) 1px 3px)}
+.lights{display:flex;gap:7px}
+.lights a,.lights span{width:13px;height:13px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.35);
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.7),inset 0 -2px 3px rgba(0,0,0,.2)}
+.lights .r{background:radial-gradient(circle at 50% 35%,#ff9a8f,#e0443a)}
+.lights .y{background:radial-gradient(circle at 50% 35%,#ffe28a,#e0a91f)}
+.lights .g{background:radial-gradient(circle at 50% 35%,#b5ef8a,#4fae2c)}
+.lcd{justify-self:center;width:min(440px,100%);height:46px;border-radius:7px;border:1px solid #7d8170;
+  background:linear-gradient(var(--lcd-hi),var(--lcd-lo));box-shadow:inset 0 1px 3px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.7);
+  color:var(--lcd-ink);text-align:center;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:0 10px}
+.lcd b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd span{font-size:11px;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search{position:relative}
+.search input{width:190px;height:24px;border-radius:12px;border:1px solid #888;padding:0 10px 0 24px;font:inherit;
+  background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.3)}
+.search input:focus{outline:none;box-shadow:0 0 0 3px rgba(85,145,230,.55),inset 0 1px 2px rgba(0,0,0,.3)}
+.search svg{position:absolute;left:8px;top:6px;width:12px;height:12px;opacity:.55}
+/* column browser */
+.browser{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:190px;flex:none;border-bottom:1px solid #777;background:var(--metal-lo)}
+.col{display:flex;flex-direction:column;min-height:0;border-right:1px solid #9a9a9a;background:var(--pane)}
+.col:last-child{border-right:0}
+.col h3{margin:0;font-size:11px;font-weight:bold;padding:3px 8px;background:linear-gradient(#fafafa,#dcdcdc);border-bottom:1px solid #a9a9a9;color:#333}
+.col ul{list-style:none;margin:0;padding:0;overflow-y:auto;flex:1}
+.col li{padding:2px 8px;cursor:default;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;justify-content:space-between;gap:8px}
+.col li:nth-child(even){background:var(--stripe)}
+.col li .n{color:var(--mut);font-size:11px}
+.col li.sel{background:var(--sel);color:var(--sel-ink)}
+.col li.sel .n{color:#dbe6fb}
+.col li:focus{outline:none}
+.col:focus-within li.sel{background:#2a62c9}
+/* cover grid */
+.main{flex:1;min-height:0;overflow-y:auto;background:radial-gradient(ellipse at top,#3a3a3a,#1f1f1f 70%);padding:18px 18px 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:22px 18px}
+.item{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--grid-ink)}
+.art{width:100%;aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center;position:relative}
+.art img{max-width:100%;max-height:100%;display:block;box-shadow:0 6px 14px rgba(0,0,0,.6);
+  -webkit-box-reflect:below 2px linear-gradient(transparent 72%,rgba(255,255,255,.18))}
+.art .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:10px;
+  background:linear-gradient(135deg,#5a6b85,#2c3646);color:#dfe6f1;font-weight:bold;font-size:12px;box-shadow:0 6px 14px rgba(0,0,0,.6)}
+.item .t{margin-top:22px;font-weight:bold;font-size:11.5px;line-height:1.25;max-width:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .a{color:var(--grid-mut);font-size:11px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item:focus-visible .art img,.item:focus-visible .ph{outline:3px solid #6ea2ff;outline-offset:3px}
+.item:hover .art img{transform:translateY(-2px);transition:transform .15s}
+.ia-dot{position:absolute;top:-6px;right:-4px;font-size:10px;font-weight:bold;background:#f6f6f6;color:#222;border-radius:9px;
+  padding:1px 6px;border:1px solid #999;box-shadow:0 1px 3px rgba(0,0,0,.5)}
+.ia-dot.free{background:#c9f0b0;border-color:#5f9a3c}
+.empty{color:var(--grid-mut);text-align:center;padding:60px 0;font-size:13px}
+/* status bar */
+.status{flex:none;background:linear-gradient(#d9d9d9,#bdbdbd);border-top:1px solid #8a8a8a;padding:4px 12px;font-size:11px;color:#333;
+  display:flex;justify-content:space-between;gap:10px}
+.status a{color:#1b4fa8}
+/* detail sheet */
+dialog{border:0;padding:0;border-radius:10px;width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:hidden;
+  box-shadow:0 25px 70px rgba(0,0,0,.7);background:#ececec}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.sheet-bar{background:linear-gradient(#f2f2f2,#cfcfcf);border-bottom:1px solid #999;padding:6px 10px;display:flex;align-items:center;justify-content:space-between;font-weight:bold;font-size:12px}
+.x{all:unset;cursor:pointer;width:22px;height:22px;border-radius:50%;text-align:center;line-height:22px;font-size:15px;color:#555}
+.x:hover,.x:focus-visible{background:rgba(0,0,0,.12)}
+.sheet{display:grid;grid-template-columns:190px 1fr;gap:18px;padding:18px;overflow-y:auto;max-height:calc(100vh - 80px)}
+.sheet img{width:100%;box-shadow:0 6px 16px rgba(0,0,0,.4);display:block}
+.sheet h2{margin:0 0 2px;font-size:18px;line-height:1.2}
+.sheet .sub{color:var(--mut);margin-bottom:10px}
+.sheet dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:10px 0 14px}
+.sheet dt{color:var(--mut);text-align:right}
+.sheet dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{all:unset;cursor:pointer;font-size:11px;padding:2px 8px;border-radius:10px;background:#fff;border:1px solid #b5b5b5}
+.chip:hover,.chip:focus-visible{border-color:var(--sel);color:var(--sel)}
+.btn{display:inline-block;margin-top:4px;padding:5px 14px;border-radius:12px;border:1px solid #2d5fb5;color:#fff;text-decoration:none;font-weight:bold;
+  background:linear-gradient(#7fb2f5,#3a7ae0 50%,#2766d0 51%,#4d8ef0);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.grey{border-color:#888;color:#222;background:linear-gradient(#fdfdfd,#e2e2e2 50%,#d4d4d4 51%,#ececec)}
+.note{color:var(--mut);font-size:11px;margin-top:6px}
+.back{color:#fff;text-align:center;margin:-8px 0 14px;font-family:"Comic Sans MS",sans-serif}
+.back a{color:#bfe0ff}
+@media (max-width:760px){
+  .win{margin:0;border-radius:0;height:100vh;min-height:0;border:0}
+  .bar{grid-template-columns:auto 1fr;padding:8px}
+  .lights{display:none}
+  .lcd{grid-column:1/-1;grid-row:1;width:100%}
+  .search{grid-column:1/-1}
+  .search input{width:100%}
+  .browser{height:132px}
+  .col h3{font-size:10px;padding:3px 5px}
+  .col li{padding:3px 5px;font-size:11px}
+  .col li .n{display:none}
+  .main{padding:14px 12px 24px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:16px 12px}
+  .sheet{grid-template-columns:1fr}
+  .sheet img{width:150px;margin:0 auto}
+  .back{display:none}
+}
+</style>
+</head>
+<body>
+<div class="win" role="application" aria-label="My Books">
+  <div class="bar">
+    <div class="lights" aria-hidden="true"><a class="r" href="/home/" title="Back to my page" tabindex="-1"></a><span class="y"></span><span class="g"></span></div>
+    <div class="lcd" aria-live="polite"><b id="lcdTitle">My Books</b><span id="lcdSub"></span></div>
+    <label class="search"><svg viewBox="0 0 16 16"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="#000" stroke-width="2"/><path d="M10 10l5 5" stroke="#000" stroke-width="2.2"/></svg>
+      <input id="q" type="search" placeholder="Search" aria-label="Search books" autocomplete="off"></label>
+  </div>
+  <div class="browser">
+    <div class="col"><h3>Topic</h3><ul id="colTopic" role="listbox" aria-label="Topic"></ul></div>
+    <div class="col"><h3>Author</h3><ul id="colAuthor" role="listbox" aria-label="Author"></ul></div>
+    <div class="col"><h3>Series</h3><ul id="colSeries" role="listbox" aria-label="Series"></ul></div>
+  </div>
+  <div class="main" id="main"><div class="grid" id="grid"></div></div>
+  <div class="status"><span id="status"></span><span><a href="/home/">← back to my page</a></span></div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dTitle">
+  <div class="sheet-bar"><span>Info</span><button class="x" id="dClose" aria-label="Close">×</button></div>
+  <div class="sheet" id="dBody"></div>
+</dialog>
+
+<script src="books.js"></script>
+<script>
+(() => {
+  const B = window.BOOKS || [];
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const sortKey = s => s.toLowerCase().replace(/^(the|a|an) /, '');
+  const state = { topic: null, author: null, series: null, q: '' };
+
+  // restore from URL hash (#topic=...&author=...)
+  try {
+    const p = new URLSearchParams(location.hash.slice(1));
+    for (const k of ['topic', 'author', 'series', 'q']) if (p.get(k)) state[k] = p.get(k);
+    $('q').value = state.q || '';
+  } catch (e) {}
+  const saveHash = () => {
+    const p = new URLSearchParams();
+    for (const k of ['topic', 'author', 'series', 'q']) if (state[k]) p.set(k, state[k]);
+    history.replaceState(null, '', p.toString() ? '#' + p : location.pathname);
+  };
+
+  const matchQ = b => !state.q || (b.title + ' ' + b.subtitle + ' ' + b.authors.join(' ') + ' ' + b.publisher + ' ' + b.series.join(' ') + ' ' + b.isbn)
+      .toLowerCase().includes(state.q.toLowerCase());
+  const by = {
+    topic: (b, v) => b.topics.includes(v),
+    author: (b, v) => b.authors.includes(v),
+    series: (b, v) => b.series.includes(v),
+  };
+  const pass = (b, skip) => matchQ(b) && ['topic', 'author', 'series'].every(k => k === skip || !state[k] || by[k](b, state[k]));
+
+  function column(el, key, values, label) {
+    const pool = B.filter(b => pass(b, key));
+    const counts = new Map();
+    for (const b of pool) for (const v of values(b)) counts.set(v, (counts.get(v) || 0) + 1);
+    if (state[key] && !counts.has(state[key])) state[key] = null;
+    const items = [...counts.entries()].sort((a, b) => sortKey(a[0]).localeCompare(sortKey(b[0])));
+    el.innerHTML = '';
+    const add = (val, text, n) => {
+      const li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      li.tabIndex = -1;
+      li.dataset.v = val ?? '';
+      const on = (state[key] || '') === (val ?? '');
+      li.className = on ? 'sel' : '';
+      li.setAttribute('aria-selected', on);
+      li.innerHTML = `<span>${esc(text)}</span>${n != null ? `<span class="n">${n}</span>` : ''}`;
+      li.onclick = () => { state[key] = val; render(); };
+      el.appendChild(li);
+    };
+    add(null, `All (${items.length} ${label})`, null);
+    for (const [v, n] of items) add(v, v, n);
+    const sel = el.querySelector('.sel');
+    if (sel) sel.tabIndex = 0;
+  }
+
+  // arrow keys inside a column
+  for (const id of ['colTopic', 'colAuthor', 'colSeries']) {
+    $(id).addEventListener('keydown', e => {
+      const lis = [...e.currentTarget.children];
+      let i = lis.findIndex(li => li.classList.contains('sel'));
+      if (e.key === 'ArrowDown') i = Math.min(lis.length - 1, i + 1);
+      else if (e.key === 'ArrowUp') i = Math.max(0, i - 1);
+      else return;
+      e.preventDefault();
+      lis[i].click();
+      const now = $(id).children[i];
+      now.focus(); now.scrollIntoView({ block: 'nearest' });
+    });
+  }
+
+  function render() {
+    column($('colTopic'), 'topic', b => b.topics, 'Topics');
+    column($('colAuthor'), 'author', b => b.authors.length ? b.authors : [], 'Authors');
+    column($('colSeries'), 'series', b => b.series, 'Series');
+    const list = B.filter(b => pass(b));
+    const grid = $('grid');
+    grid.innerHTML = list.length ? '' : '<div class="empty">No books match.</div>';
+    for (const b of list) {
+      const btn = document.createElement('button');
+      btn.className = 'item';
+      btn.setAttribute('aria-label', `${b.title}${b.authors.length ? ', by ' + b.authors.join(', ') : ''}`);
+      const badge = b.ia ? `<span class="ia-dot ${b.ia.kind === 'free' && !b.ia.other_edition ? 'free' : ''}" title="On the Internet Archive">IA</span>` : '';
+      btn.innerHTML = `<div class="art">${b.cover ? `<img src="${b.cover}" alt="" loading="lazy" decoding="async">` : `<div class="ph">${esc(b.title)}</div>`}${badge}</div>
+        <div class="t">${esc(b.title)}</div><div class="a">${esc(b.authors.join(', ') || b.publisher)}</div>`;
+      btn.onclick = () => openBook(b);
+      grid.appendChild(btn);
+    }
+    const ia = list.filter(b => b.ia && !b.ia.other_edition).length;
+    $('status').textContent = `${list.length} of ${B.length} books · ${ia} on the Internet Archive`;
+    const parts = [state.topic, state.author, state.series].filter(Boolean);
+    $('lcdTitle').textContent = parts.length ? parts.join(' › ') : (state.q ? `Searching “${state.q}”` : 'My Books');
+    $('lcdSub').textContent = `${list.length} book${list.length === 1 ? '' : 's'}`;
+    saveHash();
+  }
+
+  function openBook(b) {
+    const rows = [
+      ['Author', b.authors.join(', ')], ['Year', b.year], ['Publisher', b.publisher],
+      ['Edition', b.edition], ['Pages', b.pages], ['ISBN', b.isbn],
+    ].filter(r => r[1]);
+    let ia = '<div class="note">Not on the Internet Archive.</div>';
+    if (b.ia) {
+      const label = b.ia.kind === 'free' && !b.ia.other_edition ? 'Read free on the Internet Archive' :
+        b.ia.other_edition ? 'Another edition on the Internet Archive' : 'Borrow on the Internet Archive';
+      ia = `<a class="btn${b.ia.other_edition ? ' grey' : ''}" href="${esc(b.ia.url)}" target="_blank" rel="noopener">${label} ↗</a>` +
+        (b.ia.other_edition && b.ia.note ? `<div class="note">${esc(b.ia.note)}</div>` :
+         b.ia.kind === 'borrow' ? '<div class="note">Free account needed to borrow.</div>' : '');
+    }
+    const chips = (arr, key) => arr.map(v => `<button class="chip" data-k="${key}" data-v="${esc(v)}">${esc(v)}</button>`).join('');
+    $('dBody').innerHTML = `
+      <div>${b.cover ? `<img src="${b.cover}" alt="Cover of ${esc(b.title)}">` : `<div class="art"><div class="ph">${esc(b.title)}</div></div>`}</div>
+      <div>
+        <h2 id="dTitle">${esc(b.title)}</h2>
+        ${b.subtitle ? `<div class="sub">${esc(b.subtitle)}</div>` : ''}
+        <dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
+        <div class="chips">${chips(b.topics, 'topic')}${chips(b.series, 'series')}</div>
+        <div style="margin-top:14px">${ia}</div>
+      </div>`;
+    $('dBody').querySelectorAll('.chip').forEach(c => c.onclick = () => {
+      state.topic = state.author = state.series = null; state.q = ''; $('q').value = '';
+      state[c.dataset.k] = c.dataset.v; $('dlg').close(); render(); $('main').scrollTop = 0;
+    });
+    $('dlg').showModal();
+  }
+  $('dClose').onclick = () => $('dlg').close();
+  $('dlg').addEventListener('click', e => { if (e.target === $('dlg')) $('dlg').close(); });
+
+  let t;
+  $('q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value.trim(); render(); }, 120); });
+  render();
+})();
+</script>
+</body>
+</html>
