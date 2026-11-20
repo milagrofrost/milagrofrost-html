@@ -1,0 +1,4 @@
+/books /stuff-for-sale/ 301
+/books/ /stuff-for-sale/ 301
+/books/index.html /stuff-for-sale/ 301
+/books/* /stuff-for-sale/:splat 301
